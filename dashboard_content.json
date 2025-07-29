@@ -1,0 +1,275 @@
+{
+  "4": {
+    "title": {
+      "en": "Information for Ward 4",
+      "ne": "वडा ४ को जानकारी"
+    },
+    "images": [
+      {
+        "path": "assets/ward_4_image_4.jpg",
+        "caption": {
+          "en": "An overview of the main market area in Ward 4.",
+          "ne": "वडा ४ को मुख्य बजार क्षेत्रको एक सिंहावलोकन।"
+        },
+        "width": null
+      },
+      {
+        "path": "assets/ward_4_image_1.jpg",
+        "caption": {
+          "en": "Agricultural fields during the monsoon season.",
+          "ne": "मनसुनको समयमा कृषि क्षेत्रहरू।"
+        },
+        "width": null
+      },
+      {
+        "path": "assets/ward_4_image_2.jpg",
+        "caption": {
+          "en": "Community gathering at the local temple.",
+          "ne": "स्थानीय मन्दिरमा सामुदायिक भेला।"
+        },
+        "width": null
+      },
+      {
+        "path": "assets/ward_4_image_3.jpg",
+        "caption": {
+          "en": "Newly constructed bridge connecting two settlements.",
+          "ne": "दुई बस्ती जोड्ने नवनिर्मित पुल।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_4_image_5.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_4_image_6.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      }
+      ,
+      {
+        "path": "assets/ward_4_image_7.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_4_image_8.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_4_image_9.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_4_image_10.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_4_image_11.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      }
+    ],
+    "sectors": {
+      "Health": {
+        "summary": {
+          "en": "Ward 4 has one primary health post and several private pharmacies. Efforts are underway to increase vaccination coverage and maternal health services.",
+          "ne": "वडा ४ मा एक प्राथमिक स्वास्थ्य चौकी र धेरै निजी फार्मेसीहरू छन्। खोप कभरेज र मातृ स्वास्थ्य सेवाहरू बढाउन प्रयासहरू भइरहेका छन्।"
+        },
+        "chart_title": {
+          "en": "Available Health Facilities",
+          "ne": "उपलब्ध स्वास्थ्य सुविधाहरू"
+        },
+        "chart_headers": [
+          { "en": "Facility Type", "ne": "सुविधाको प्रकार" },
+          { "en": "Total Count", "ne": "कुल संख्या" }
+        ],
+        "chart_data": [
+          { "Facility Type": "Health Post", "Total Count": 1 },
+          { "Facility Type": "Private Clinic", "Total Count": 3 },
+          { "Facility Type": "Pharmacy", "Total Count": 8 }
+        ]
+      },
+      "Education": {
+        "summary": {
+          "en": "There are two government schools and three private boarding schools in this ward, with a total student population of approximately 1,200.",
+          "ne": "यस वडामा दुईवटा सरकारी विद्यालय र तीनवटा निजी बोर्डिङ स्कूलहरू छन्, जसमा कुल विद्यार्थी संख्या लगभग १,२०० छ।"
+        },
+        "chart_title": {
+          "en": "Student Enrollment by School Type",
+          "ne": "विद्यालयको प्रकार अनुसार विद्यार्थी भर्ना"
+        },
+        "chart_headers": [
+          { "en": "School Type", "ne": "विद्यालयको प्रकार" },
+          { "en": "Number of Students", "ne": "विद्यार्थी संख्या" }
+        ],
+        "chart_data": [
+          { "School Type": "Government", "Number of Students": 750 },
+          { "School Type": "Private", "Number of Students": 450 }
+        ]
+      },
+      "Agriculture": {
+        "summary": {
+          "en": "The dominant agricultural products are rice, wheat, and vegetables. The ward office is promoting modern farming techniques through subsidies.",
+          "ne": "यहाँका प्रमुख कृषि उत्पादनहरू धान, गहुँ र तरकारी हुन्। वडा कार्यालयले अनुदानमार्फत आधुनिक खेती प्रविधिको प्रवर्द्धन गरिरहेको छ।"
+        }
+      },
+      "Urban Development": {}
+    }
+  },
+  "7": {
+    "title": {
+      "en": "Information for Ward 7",
+      "ne": "वडा ७ को जानकारी"
+    },
+    "images": [
+      {
+        "path": "assets/ward_7_image_4.jpg",
+        "caption": {
+          "en": "An overview of the main market area in Ward 4.",
+          "ne": "वडा ४ को मुख्य बजार क्षेत्रको एक सिंहावलोकन।"
+        },
+        "width": null
+      },
+      {
+        "path": "assets/ward_7_image_1.jpg",
+        "caption": {
+          "en": "Agricultural fields during the monsoon season.",
+          "ne": "मनसुनको समयमा कृषि क्षेत्रहरू।"
+        },
+        "width": null
+      },
+      {
+        "path": "assets/ward_7_image_2.jpg",
+        "caption": {
+          "en": "Community gathering at the local temple.",
+          "ne": "स्थानीय मन्दिरमा सामुदायिक भेला।"
+        },
+        "width": null
+      },
+      {
+        "path": "assets/ward_7_image_3.jpg",
+        "caption": {
+          "en": "Newly constructed bridge connecting two settlements.",
+          "ne": "दुई बस्ती जोड्ने नवनिर्मित पुल।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_7_image_5.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_7_image_6.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      }
+      ,
+      {
+        "path": "assets/ward_7_image_7.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_7_image_8.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_7_image_9.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_7_image_10.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      },
+      {
+        "path": "assets/ward_7_image_11.jpg",
+        "caption": {
+          "en": "Local school building infrastructure.",
+          "ne": "स्थानीय विद्यालय भवनको पूर्वाधार।"
+        },
+        "width": 700
+      }
+    ],
+    "sectors": {
+      "Health": {
+        "summary": {
+          "en": "Ward 7 is served by a well-equipped urban health center that provides 24-hour emergency services.",
+          "ne": "वडा ७ मा २४-घण्टा आकस्मिक सेवा प्रदान गर्ने एक सुसज्जित शहरी स्वास्थ्य केन्द्र रहेको छ।"
+        }
+      },
+      "Infrastructure": {
+        "summary": {
+          "en": "Recent projects include road blacktopping and the installation of solar street lights across the main roads.",
+          "ne": "हालैका आयोजनाहरूमा सडक कालोपत्रे र मुख्य सडकहरूमा सौर्य सडक बत्ती जडान समावेश छ।"
+        },
+        "chart_title": {
+          "en": "Road Conditions",
+          "ne": "सडकको अवस्था"
+        },
+        "chart_headers": [
+          { "en": "Road Type", "ne": "सडकको प्रकार" },
+          { "en": "Length (km)", "ne": "लम्बाई (कि.मि.)" }
+        ],
+        "chart_data": [
+          { "Road Type": "Blacktopped", "Length (km)": 15 },
+          { "Road Type": "Gravel", "Length (km)": 8 },
+          { "Road Type": "Earthen", "Length (km)": 12 }
+        ]
+      },
+      "Disaster": {
+        "summary": {
+          "en": "The ward is moderately vulnerable to landslides during the monsoon. An early warning system and community response teams are in place.",
+          "ne": "यो वडा मनसुनको समयमा पहिरोको मध्यम जोखिममा छ। पूर्व-चेतावनी प्रणाली र सामुदायिक प्रतिक्रिया टोलीहरू स्थापना गरिएका छन्।"
+        }
+      }
+    }
+  }
+}
