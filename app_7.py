@@ -19,7 +19,7 @@ def to_nepali_num(number):
     nepali_digits = {'0': '०', '1': '१', '2': '२', '3': '३', '4': '४', '5': '५', '6': '६', '7': '७', '8': '८', '9': '९'}
     return "".join([nepali_digits[char] for char in str(number)])
 
-# --- UPDATED: Comprehensive Language Translation Dictionary ---
+# --- UPDATED: Comprehensive Language Translation Dictionary with new changes ---
 TEXT = {
     'en': {
         'dashboard_title': "Municipal Ward Dashboard",
@@ -33,16 +33,14 @@ TEXT = {
         'dashboard_info': "Select a ward to view its profile, interactive map, and key infographics.",
         'welcome_message': "## Welcome! Please select a ward from the sidebar to begin.",
         'ward_profile_title': "Profile of Ward {ward}",
-        'social_map_header': "Interactive Social Map",
+        'social_map_header': "", # <-- REMOVED TITLE
         'geodata_error': "Geospatial data for Ward {ward} could not be loaded.",
         'profile_summary_header': "Ward Profile Summary",
         'no_sector_data': "No sector-specific information is available for this sector.",
-        'infographics_header': "📊 Ward Infographics and Key Figures",
+        'infographics_header': "📊 Social Mapping",
         'caption_unavailable': "No description available.",
         'image_not_found': "Image not found at path: {path}",
         'selected_points_header': "Total Counts for Selected Points",
-        'sector_overview': "Overview",
-        'sector_metrics': "Key Metrics: {title}",
     },
     'ne': {
         'dashboard_title': "नगरपालिका वार्ड ड्यासबोर्ड",
@@ -56,23 +54,20 @@ TEXT = {
         'dashboard_info': "प्रोफाइल, अन्तरक्रियात्मक नक्सा, र मुख्य इन्फोग्राफिक्स हेर्नको लागि साइडबारबाट एउटा वडा छान्नुहोस्।",
         'welcome_message': "## स्वागत छ! कृपया सुरु गर्न साइडबारबाट एउटा वडा छान्नुहोस्।",
         'ward_profile_title': "वडा {ward} को प्रोफाइल",
-        'social_map_header': "अन्तरक्रियात्मक सामाजिक नक्सा",
+        'social_map_header': "", # <-- REMOVED TITLE
         'geodata_error': "वडा {ward} को लागि भौगोलिक डाटा लोड गर्न सकिएन।",
-        'profile_summary_header': "वडा प्रोफाइल सारांश",
+        'profile_summary_header': "नगरपालिकाको साखा महासखा", # <-- UPDATED TITLE
         'no_sector_data': "यस क्षेत्रका लागि कुनै क्षेत्र-विशेष जानकारी उपलब्ध छैन।",
-        'infographics_header': "📊 वार्ड इन्फोग्राफिक्स र मुख्य तथ्याङ्कहरू",
+        'infographics_header': "📊 सामाजिक नक्साङ्कन", # <-- UPDATED TITLE
         'caption_unavailable': "कुनै विवरण उपलब्ध छैन।",
         'image_not_found': "पथमा छवि फेला परेन: {path}",
         'selected_points_header': "चयन गरिएका अंकहरूको कुल गणना",
-        'sector_overview': "अवलोकन",
-        'sector_metrics': "मुख्य मेट्रिक्स: {title}",
         'sectors': {
             'Health': 'स्वास्थ्य', 'Education': 'शिक्षा', 'Agriculture': 'कृषि',
             'Environment': 'वातावरण', 'Infrastructure': 'पूर्वाधार', 'Women & Child': 'महिला र बालबालिका',
             'Disaster': 'विपद्', 'Economic Development': 'आर्थिक विकास', 'Urban Development': 'शहरी विकास',
             'Civil Registration': 'नागरिक दर्ता', 'Planning & Monitoring': 'योजना र अनुगमन'
         },
-        # --- THIS IS THE FULLY UPDATED AND CONSOLIDATED DICTIONARY ---
         'map_categories': {
             'Animal Farm': 'पशु फार्म',
             'Apartments/Housing': 'अपार्टमेन्ट/आवास',
@@ -162,31 +157,13 @@ def display_infographics(images, txt):
         else:
             st.warning(txt['image_not_found'].format(path=item['path']))
 
-
+# --- REWRITTEN FUNCTION: SIMPLIFIED SECTOR CONTENT ---
 def display_sector_content(sector_data, txt):
-    lang = st.session_state.lang
-    if "summary" in sector_data:
-        st.markdown(f"#### {txt['sector_overview']}")
-        st.info(sector_data["summary"].get(lang, sector_data["summary"].get('en', '')))
-    if "chart_data" in sector_data and sector_data["chart_data"]:
-        chart_title_data = sector_data.get('chart_title', {})
-        chart_title = chart_title_data.get(lang, chart_title_data.get('en', ''))
-        st.markdown(f"#### {txt['sector_metrics'].format(title=chart_title)}")
-        try:
-            df = pd.DataFrame(sector_data["chart_data"])
-            if lang == 'ne':
-                df.columns = [d.get(lang, d.get('en')) for d in sector_data.get('chart_headers', [])]
-            else:
-                 df.columns = [d.get('en') for d in sector_data.get('chart_headers', [])]
-
-            x_axis, y_axis = df.columns[0], df.columns[1]
-            chart = alt.Chart(df).mark_bar(color='lightblue', tooltip=True).encode(
-                x=alt.X(x_axis, type='nominal', sort=None, title=x_axis),
-                y=alt.Y(y_axis, type='quantitative', title=y_axis)
-            ).interactive()
-            st.altair_chart(chart, use_container_width=True)
-        except Exception as e:
-            st.error(f"Chart Error: {e}")
+    """
+    This function is intentionally left blank. As per the user's request,
+    no text or content should be displayed within the sector tabs.
+    """
+    pass # Does nothing
 
 def create_folium_map(gdf_ward, df_points, selected_categories, txt):
     if gdf_ward.empty: return None
@@ -232,14 +209,23 @@ with st.sidebar:
 txt = TEXT[st.session_state.lang]
 
 # --- TOP HEADER SECTION (Logos) ---
-header_cols = st.columns([2, 3])
+# --- TOP HEADER SECTION (Logos) ---
+# Swapped column order and adjusted ratios to give title more space
+header_cols = st.columns([3, 1]) 
+
+# Place the title and subtitle in the first (left) wider column
 with header_cols[0]:
-    logo_cols = st.columns(3)
-    for i, logo_path in enumerate(["assets/municipality_logo.jpg", "assets/herd_logo.jpg", "assets/kioch_logo.jpg"]):
-        if os.path.exists(logo_path): logo_cols[i].image(logo_path, width=100 if i != 1 else 120)
-with header_cols[1]:
     st.title(txt['dashboard_title'])
     st.markdown(txt['dashboard_subtitle'])
+
+# Place the logos in the second (right) narrower column
+with header_cols[1]:
+    # This creates 3 sub-columns inside the right column to space out the logos
+    logo_cols = st.columns(3)
+    for i, logo_path in enumerate(["assets/municipality_logo.jpg", "assets/herd_logo.jpg", "assets/kioch_logo.jpg"]):
+        if os.path.exists(logo_path): 
+            logo_cols[i].image(logo_path, width=100 if i != 1 else 120) # Note: The width here is relative to the sub-column
+
 st.markdown("---")
 
 # --- 6. SIDEBAR NAVIGATION (Continued) ---
@@ -283,7 +269,8 @@ else:
     st.markdown("---")
     col1, col2 = st.columns([3, 2])
     with col1:
-        st.subheader(txt['social_map_header'])
+        # The subheader that was here has been removed by setting the text to ""
+        st.subheader(txt['social_map_header']) 
         if gdf_ward is None:
             st.error(txt['geodata_error'].format(ward=display_ward))
         else:
@@ -315,6 +302,7 @@ else:
             with sector_tabs[i]:
                 sector_data = sectors.get(sector_name_en)
                 if sector_data:
+                    # This now calls the new, simplified function
                     display_sector_content(sector_data, txt)
                 else:
                     st.info(txt['no_sector_data'])
