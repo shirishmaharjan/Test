@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from PIL import Image
 from streamlit_folium import st_folium
 
