@@ -3,13 +3,11 @@ import os
 import json
 import pandas as pd
 from PIL import Image
-import altair as alt
 
 # Geospatial libraries
 import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
-from shapely.geometry import Polygon
 
 # This disables the decompression bomb check and allows large images to be processed.
 Image.MAX_IMAGE_PIXELS = None
@@ -116,7 +114,7 @@ def display_infographics(images, txt):
             st.warning(txt['image_not_found'].format(path=item['path']))
 
 def display_sector_content(sector_data, txt):
-    pass # As requested, this section is kept blank
+    pass
 
 def create_folium_map(gdf_ward, df_points, selected_categories, txt):
     if gdf_ward.empty:
@@ -143,7 +141,6 @@ def create_folium_map(gdf_ward, df_points, selected_categories, txt):
 # --- 4. SESSION STATE & INITIALIZATION ---
 if 'lang' not in st.session_state:
     st.session_state.lang = 'en'
-# --- NEW: Add state for the currently displayed ward ---
 if 'active_ward' not in st.session_state:
     st.session_state.active_ward = None
 
@@ -179,15 +176,13 @@ with st.sidebar:
     def format_ward_options(ward):
         return f"Ward {ward}" if st.session_state.lang == 'en' else f"{txt['select_ward']} {to_nepali_num(ward)}"
 
-    # This selectbox now stores its choice in a temporary 'pending_ward' state
     st.selectbox(txt['select_ward'], options=ward_options, index=None, placeholder=txt['choose_ward'], format_func=format_ward_options, key='pending_ward')
 
-    # This button commits the choice and triggers the app to update
+    # This button now uses Streamlit's natural rerun behavior, which is more stable.
     if st.button(f"{txt['view_ward_button']}", use_container_width=True, type="primary"):
         st.session_state.active_ward = st.session_state.pending_ward
-        st.rerun()
+        # THE st.rerun() LINE IS REMOVED HERE. THIS IS THE FIX.
 
-    # The map layers are now only shown if a ward is active
     selected_map_categories = []
     if st.session_state.active_ward:
         gdf_ward, df_points = load_geospatial_data(st.session_state.active_ward)
@@ -200,7 +195,7 @@ with st.sidebar:
     st.markdown("---")
     st.info(txt['dashboard_info'])
 
-# --- 7. MAIN PANEL DISPLAY (MODIFIED FOR STABILITY) ---
+# --- 7. MAIN PANEL DISPLAY ---
 if not st.session_state.active_ward:
     st.info(txt['welcome_message'])
 else:
@@ -218,7 +213,6 @@ else:
             st.error(txt['geodata_error'].format(ward=display_ward))
         else:
             folium_map = create_folium_map(gdf_ward, df_points, selected_map_categories, txt)
-            # Add a check to ensure map was created before trying to display it
             if folium_map:
                 st_folium(folium_map, width='100%', height=500, returned_objects=[])
 
