@@ -166,10 +166,28 @@ def display_sector_content(sector_data, txt):
     pass # Does nothing
 
 def create_folium_map(gdf_ward, df_points, selected_categories, txt):
-    if gdf_ward.empty: return None
-    map_center = [gdf_ward.geometry.centroid.y.iloc[0], gdf_ward.geometry.centroid.x.iloc[0]]
+    # --- FIX 1: CHECK IF THE GEODATAFRAME IS EMPTY ---
+    # If it's empty, we can't calculate a center, so return an empty map or None.
+    if gdf_ward.empty:
+        # You could return a default map of a wider area, or None
+        # Returning None is fine since your calling code already handles this.
+        st.warning("The shapefile for this ward is empty and cannot be displayed on the map.")
+        return None 
+
+    # --- FIX 2: RE-PROJECT TO A PROJECTED CRS BEFORE CALCULATING CENTROID ---
+    # This fixes the UserWarning and gives a more accurate center.
+    # We use a common projected CRS (EPSG:3857) for calculations.
+    gdf_ward_projected = gdf_ward.to_crs(epsg=3857)
+    center_projected = gdf_ward_projected.geometry.centroid.iloc[0]
+    
+    # Now, convert the calculated center point back to the original CRS (lat/lon) for Folium
+    map_center_point = gpd.GeoSeries([center_projected], crs="EPSG:3857").to_crs(epsg=4326).iloc[0]
+    map_center = [map_center_point.y, map_center_point.x]
+
+    # The rest of your function remains the same
     m = folium.Map(location=map_center, zoom_start=15, tiles="OpenStreetMap")
     folium.GeoJson(gdf_ward, style_function=lambda f: {'fillColor': '#fde047', 'color': 'black', 'weight': 2, 'fillOpacity': 0.2}).add_to(m)
+    
     if selected_categories and not df_points.empty:
         filtered_df = df_points[df_points['Category'].isin(selected_categories)]
         colors = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige', 'darkblue', 'darkgreen', 'cadetblue']
